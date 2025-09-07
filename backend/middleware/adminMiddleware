@@ -1,0 +1,100 @@
+// const jwt = require("jsonwebtoken");
+// const User = require("../models/user");
+// const redisClient = require("../config/redis")
+
+// const adminMiddleware = async (req,res,next)=>{
+
+//     try{
+//         const {token} = req.cookies;
+//         if(!token)
+//             throw new Error("Token is not present");
+//         const payload = jwt.verify(token,process.env.JWT_KEY);
+//         const {_id} = payload;
+//         if(!_id){
+//             throw new Error("Invalid token");
+//         }
+//         const result = await User.findById(_id);
+//         console.log("xyz");
+//         if(payload.role!='admin')
+//             throw new Error("Invalid Token");
+//             console.log("abc");
+
+//         if(!result){
+//             throw new Error("User Doesn't Exist");
+//         }
+//         const IsBlocked = await redisClient.exists(`token:${token}`);
+//         if(IsBlocked)
+//             throw new Error("Invalid Token");
+//         req.result = result;
+//         next();
+//     }
+//     catch(err){
+//         res.status(401).send("Error: "+ err.message)
+//     }
+
+// }
+// module.exports = adminMiddleware;
+
+const jwt = require("jsonwebtoken");
+const User = require("../models/user");
+const redisClient = require("../config/redis");
+
+const adminMiddleware = async (req, res, next) => {
+  try {
+    // Declare token outside the try-catch block
+    let token;
+
+    try {
+      token = req.cookies.token;
+      if (!token) throw new Error("Token is not present");
+    } catch (error) {
+      console.log("Token extraction error: " + error);
+      return res.status(401).send("Error: " + error.message);
+    }
+
+    // Verify JWT token
+    let payload;
+    try {
+      payload = jwt.verify(token, process.env.JWT_KEY);
+    } catch (jwtError) {
+      return res.status(401).send("Error: Invalid or expired token");
+    }
+
+    const { _id, role } = payload;
+
+    if (!_id) {
+      console.log("No _id in token payload");
+      throw new Error("Invalid token - missing user ID");
+    }
+
+    // Find user in database
+    const result = await User.findById(_id);
+    if (!result) {
+      console.log("User not found in database for ID:", _id);
+      throw new Error("User doesn't exist");
+    }
+
+    // Check if user has admin role (get from database instead of token)
+    if (result.role !== "admin") {
+      console.log("User role is not admin. Role from DB:", result.role);
+      throw new Error("Access denied - Admin privileges required");
+    }
+
+    // Check if token is blacklisted in Redis
+    const isBlocked = await redisClient.exists(`token:${token}`);
+    if (isBlocked) {
+      console.log("Token is blacklisted in Redis");
+      throw new Error("Token has been revoked");
+    }
+
+    req.result = result;
+    req.user = result; // Also add user to request for convenience
+
+    next();
+  } catch (err) {
+    console.log("Admin middleware error:", err.message);
+    res.status(401).send("Error: " + err.message);
+  }
+};
+
+module.exports = adminMiddleware;

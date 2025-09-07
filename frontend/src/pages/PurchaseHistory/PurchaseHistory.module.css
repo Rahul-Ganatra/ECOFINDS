@@ -1,0 +1,824 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #2c3e50, #3498db);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: #7f8c8d;
+    margin: 0;
+}
+
+.errorContainer {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.errorContainer h2 {
+    color: #e74c3c;
+    margin-bottom: 1rem;
+}
+
+.errorContainer p {
+    color: #7f8c8d;
+    margin-bottom: 2rem;
+}
+
+.errorContainer button {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.errorContainer button:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+}
+
+.emptyState {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.emptyIcon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.emptyState h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.emptyState p {
+    color: #7f8c8d;
+    margin-bottom: 2rem;
+}
+
+.shopBtn {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.shopBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.ordersList {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.orderCard {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.orderCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.orderHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.orderInfo {
+    flex: 1;
+}
+
+.orderNumber {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.3;
+}
+
+.orderDate {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.orderStatusContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.orderStatus {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.statusIcon {
+    font-size: 1.1rem;
+}
+
+.statusText {
+    text-transform: capitalize;
+}
+
+.progressBar {
+    width: 150px;
+    height: 6px;
+    background: #e0e0e0;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progressFill {
+    height: 100%;
+    transition: width 0.3s ease;
+    border-radius: 3px;
+}
+
+.orderItems {
+    margin-bottom: 1.5rem;
+}
+
+.orderItems h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 0 1rem 0;
+}
+
+.orderItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+}
+
+.itemImage {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.itemDetails {
+    flex: 1;
+}
+
+.itemTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 0 0.25rem 0;
+}
+
+.itemQuantity,
+.itemPrice {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin: 0;
+}
+
+.itemTotal {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.orderSummary {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.summaryRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.summaryTotal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #2c3e50;
+    padding-top: 0.5rem;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 0.5rem;
+}
+
+.trackingInfo {
+    background: #e8f4fd;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.trackingInfo h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 0 1rem 0;
+}
+
+.trackingDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.trackingRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.trackingLabel {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.trackingValue {
+    color: #7f8c8d;
+}
+
+.noTracking {
+    color: #7f8c8d;
+    font-style: italic;
+    margin: 0;
+}
+
+.orderNotes {
+    background: #fff3cd;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.orderNotes h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 0 0.5rem 0;
+}
+
+.orderNotes p {
+    color: #7f8c8d;
+    margin: 0;
+}
+
+.orderActions {
+    display: flex;
+    gap: 1rem;
+}
+
+.viewDetailsBtn,
+.reorderBtn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.viewDetailsBtn {
+    background: transparent;
+    color: #1282a2;
+    border: 2px solid #1282a2;
+}
+
+.viewDetailsBtn:hover {
+    background: #1282a2;
+    color: white;
+}
+
+.reorderBtn {
+    background: transparent;
+    color: #27ae60;
+    border: 2px solid #27ae60;
+}
+
+.reorderBtn:hover {
+    background: #27ae60;
+    color: white;
+}
+
+.purchaseDescription {
+    padding-top: 1rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.purchaseDescription h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 0 0.5rem 0;
+}
+
+.purchaseDescription p {
+    color: #7f8c8d;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    color: #7f8c8d;
+}
+
+.loadingSpinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #e0e0e0;
+    border-top: 4px solid #1282a2;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .orderCard {
+        padding: 1.5rem;
+    }
+
+    .orderHeader {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .orderStatusContainer {
+        align-items: flex-start;
+    }
+
+    .progressBar {
+        width: 100%;
+    }
+
+    .orderItem {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    .itemImage {
+        width: 80px;
+        height: 80px;
+    }
+
+    .orderActions {
+        flex-direction: column;
+    }
+
+    .viewDetailsBtn,
+    .reorderBtn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .orderNumber {
+        font-size: 1.25rem;
+    }
+
+    .trackingRow {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+
+    .summaryRow {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+}
+
+/* ===============================
+   Purchase History Page Styles
+================================= */
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+    color: #777;
+    margin-top: 0.5rem;
+  }
+  
+  /* ===============================
+     Search Section
+  ================================= */
+  .searchSection {
+    margin-bottom: 2rem;
+  }
+  
+  .searchBar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  
+  .searchInput {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.7rem 2.5rem 0.7rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+  }
+  
+  .searchInput:focus {
+    border-color: #007bff;
+  }
+  
+  .searchIcon {
+    position: absolute;
+    right: 1rem;
+    font-size: 1.2rem;
+    color: #555;
+    pointer-events: none;
+  }
+  
+  .categoryFilters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.7rem;
+  }
+  
+  .categoryBtn {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    background: #f8f8f8;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+  
+  .categoryBtn:hover {
+    background: #007bff;
+    color: white;
+  }
+  
+  .active {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+  
+  /* ===============================
+     Empty State
+  ================================= */
+  .emptyState {
+    text-align: center;
+    padding: 3rem;
+    background: #f9f9f9;
+    border-radius: 10px;
+  }
+  
+  .emptyIcon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .shopBtn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    background: #007bff;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  
+  .shopBtn:hover {
+    background: #0056b3;
+  }
+  
+  /* ===============================
+     Orders List
+  ================================= */
+  .ordersList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .orderCard {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+  }
+  
+  .orderCard:hover {
+    transform: translateY(-3px);
+  }
+  
+  /* Order Header */
+  .orderHeader {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .orderNumber {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .orderDate {
+    font-size: 0.9rem;
+    color: #777;
+  }
+  
+  .orderStatusContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+  }
+  
+  .orderStatus {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: bold;
+  }
+  
+  .progressBar {
+    width: 150px;
+    height: 6px;
+    background: #eee;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  
+  .progressFill {
+    height: 100%;
+    border-radius: 3px;
+  }
+  
+  /* Order Items */
+  .orderItems {
+    margin-top: 1rem;
+  }
+  
+  .orderItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .itemImage {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+  
+  .itemDetails {
+    flex: 1;
+  }
+  
+  .itemTitle {
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+  }
+  
+  .itemQuantity,
+  .itemPrice {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .itemTotal {
+    font-weight: bold;
+  }
+  
+  /* Order Summary */
+  .orderSummary {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+  }
+  
+  .summaryRow,
+  .summaryTotal {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.3rem 0;
+  }
+  
+  .summaryTotal {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  
+  /* Tracking */
+  .trackingInfo {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f7faff;
+    border-radius: 8px;
+  }
+  
+  .trackingRow {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.4rem 0;
+  }
+  
+  .trackingLabel {
+    font-weight: 500;
+  }
+  
+  .noTracking {
+    color: #777;
+    font-size: 0.9rem;
+  }
+  
+  /* Notes */
+  .orderNotes {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #fff6e5;
+    border-radius: 8px;
+    font-size: 0.95rem;
+  }
+  
+  /* Actions */
+  .orderActions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .viewDetailsBtn,
+  .reorderBtn {
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+  }
+  
+  .viewDetailsBtn {
+    background: #007bff;
+    color: white;
+  }
+  
+  .viewDetailsBtn:hover {
+    background: #0056b3;
+  }
+  
+  .reorderBtn {
+    background: #28a745;
+    color: white;
+  }
+  
+  .reorderBtn:hover {
+    background: #1e7e34;
+  }
+  
+  /* ===============================
+     Loading & Error
+  ================================= */
+  .loadingContainer,
+  .errorContainer {
+    text-align: center;
+    padding: 3rem;
+  }
+  
+  .loadingSpinner {
+    border: 4px solid #eee;
+    border-top: 4px solid #007bff;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    margin: 0 auto 1rem;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  

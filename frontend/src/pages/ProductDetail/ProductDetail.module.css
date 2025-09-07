@@ -1,0 +1,389 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.backBtn {
+    background: transparent;
+    color: #1282a2;
+    border: 2px solid #1282a2;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.backBtn:hover {
+    background: #1282a2;
+    color: white;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #2c3e50;
+    margin: 0;
+    background: linear-gradient(45deg, #2c3e50, #3498db);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.productContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.imageSection {
+    display: flex;
+    flex-direction: column;
+}
+
+.imageContainer {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #f8f9fa;
+}
+
+.productImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.statusBadge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: white;
+    background: #27ae60;
+}
+
+.statusBadge:contains('Sold') {
+    background: #e74c3c;
+}
+
+.statusBadge:contains('Pending') {
+    background: #f39c12;
+}
+
+.detailsSection {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.productHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.productTitle {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #2c3e50;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.categoryTag {
+    background: rgba(18, 130, 162, 0.1);
+    color: #1282a2;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.priceSection {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #2c3e50;
+}
+
+.condition {
+    background: #e8f4fd;
+    color: #1282a2;
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.descriptionSection h3,
+.sellerSection h3,
+.locationSection h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.description {
+    color: #7f8c8d;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.sellerInfo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 15px;
+}
+
+.sellerAvatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.sellerName {
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 0 0.25rem 0;
+}
+
+.sellerEmail {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.location {
+    color: #7f8c8d;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.actionSection {
+    margin-top: 1rem;
+}
+
+.ownerActions,
+.buyerActions,
+.unavailableActions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.ownerMessage,
+.unavailableMessage {
+    color: #7f8c8d;
+    font-style: italic;
+    margin: 0;
+}
+
+.ownerButtons,
+.buyerActions {
+    display: flex;
+    gap: 1rem;
+}
+
+.cartBtn,
+.purchaseBtn,
+.editBtn,
+.deleteBtn {
+    flex: 1;
+    padding: 1rem 2rem;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.cartBtn {
+    background: transparent;
+    color: #1282a2;
+    border: 2px solid #1282a2;
+}
+
+.cartBtn:hover {
+    background: #1282a2;
+    color: white;
+}
+
+.purchaseBtn {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.purchaseBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.editBtn {
+    background: transparent;
+    color: #27ae60;
+    border: 2px solid #27ae60;
+}
+
+.editBtn:hover {
+    background: #27ae60;
+    color: white;
+}
+
+.deleteBtn {
+    background: transparent;
+    color: #e74c3c;
+    border: 2px solid #e74c3c;
+}
+
+.deleteBtn:hover {
+    background: #e74c3c;
+    color: white;
+}
+
+.metaInfo {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.dateInfo,
+.updateInfo {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin: 0.25rem 0;
+}
+
+.loadingContainer,
+.errorContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    color: #7f8c8d;
+}
+
+.loadingSpinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #e0e0e0;
+    border-top: 4px solid #1282a2;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.errorContainer h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .productContainer {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+
+    .imageContainer {
+        height: 300px;
+    }
+
+    .productTitle {
+        font-size: 1.5rem;
+    }
+
+    .price {
+        font-size: 2rem;
+    }
+
+    .ownerButtons,
+    .buyerActions {
+        flex-direction: column;
+    }
+
+    .cartBtn,
+    .purchaseBtn,
+    .editBtn,
+    .deleteBtn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .productHeader {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .priceSection {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .sellerInfo {
+        flex-direction: column;
+        text-align: center;
+    }
+}

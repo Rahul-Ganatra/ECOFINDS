@@ -1,0 +1,971 @@
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  border-radius: 25px;
+  box-shadow: 0 25px 50px rgba(56, 189, 248, 0.15),
+    0 10px 25px rgba(14, 165, 233, 0.1);
+}
+
+.profileHeader {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 25px;
+  box-shadow: 0 25px 50px rgba(56, 189, 248, 0.15),
+    0 10px 25px rgba(14, 165, 233, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  padding: 2.5rem 2rem;
+  color: var(--text-primary);
+  text-align: center;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.profileHeader::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--accent-primary),
+    var(--accent-secondary),
+    var(--accent-tertiary)
+  );
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.profileHeader:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(56, 189, 248, 0.2),
+    0 15px 35px rgba(14, 165, 233, 0.15);
+}
+
+.profileHeader:hover::before {
+  transform: scaleX(1);
+}
+
+.userAvatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--accent-primary);
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 16px rgba(56, 189, 248, 0.2);
+}
+
+.userName {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary) 0%,
+    var(--accent-secondary) 50%,
+    var(--accent-tertiary) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 8px rgba(56, 189, 248, 0.2);
+}
+
+.userEmail {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.userDetails {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.detailItem {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.detailLabel {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 0.25rem;
+}
+
+.detailValue {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.logoutButton {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  color: var(--bg-primary);
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary) 0%,
+    var(--accent-secondary) 50%,
+    var(--accent-tertiary) 100%
+  );
+  border: 2px solid transparent;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(56, 189, 248, 0.2);
+  transform: translateY(0);
+}
+
+.logoutButton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.6s;
+}
+
+.logoutButton:hover {
+  background: linear-gradient(
+    135deg,
+    var(--accent-secondary) 0%,
+    var(--accent-tertiary) 50%,
+    var(--accent-primary) 100%
+  );
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(56, 189, 248, 0.3);
+}
+
+.logoutButton:hover::before {
+  left: 100%;
+}
+
+.logoutButton:active {
+  transform: translateY(-1px);
+}
+
+.tripsSection {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sectionTitle::before {
+  content: "";
+  width: 4px;
+  height: 2rem;
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary) 0%,
+    var(--accent-secondary) 100%
+  );
+  border-radius: 2px;
+}
+
+.loadingState {
+  text-align: center;
+  padding: 3rem;
+  color: #666;
+}
+
+.errorState {
+  text-align: center;
+  padding: 3rem;
+  color: #d32f2f;
+  background: #ffebee;
+  border-radius: 8px;
+  border-left: 4px solid #d32f2f;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 3rem;
+  color: #888;
+}
+
+.emptyStateIcon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.3;
+}
+
+.tripsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.tripCard {
+  background: var(--bg-secondary, #fafafa);
+  border: 1px solid var(--accent-primary, #e0e0e0);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.tripCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary) 0%,
+    var(--accent-secondary) 100%
+  );
+}
+
+.tripCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(56, 189, 248, 0.12);
+  border-color: var(--accent-primary);
+}
+
+.tripCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.tripTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.deleteButton {
+  background: none;
+  border: none;
+  color: #d32f2f;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.deleteButton:hover {
+  background: #ffebee;
+  transform: scale(1.1);
+}
+
+.tripInfo {
+  margin-bottom: 1rem;
+}
+
+.tripInfoItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.tripInfoItem strong {
+  color: #333;
+}
+
+.tripDate {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 1rem;
+  font-style: italic;
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.viewDetailsButton {
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary) 0%,
+    var(--accent-secondary) 50%,
+    var(--accent-tertiary) 100%
+  );
+  color: var(--bg-primary);
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  width: 100%;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.15);
+}
+
+.viewDetailsButton:hover {
+  background: linear-gradient(
+    135deg,
+    var(--accent-secondary) 0%,
+    var(--accent-tertiary) 50%,
+    var(--accent-primary) 100%
+  );
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(56, 189, 248, 0.25);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modalContent {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow: auto;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.closeButton:hover {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.modalTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tripDetailsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.tripDetailItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.tripDetailLabel {
+  font-weight: 600;
+  color: #667eea;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.tripDetailValue {
+  color: #333;
+  font-size: 1rem;
+}
+
+.suggestionsTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 0.5rem;
+    margin: 1rem auto;
+  }
+
+  .profileHeader {
+    padding: 2rem 1rem;
+  }
+
+  .userAvatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .userName {
+    font-size: 2rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .userEmail {
+    font-size: 1rem;
+  }
+
+  .userDetails {
+    grid-template-columns: 1fr;
+  }
+
+  .tripsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .tripDetailsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .modalContent {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profileHeader {
+    padding: 1.5rem 1rem;
+  }
+
+  .userName {
+    font-size: 1.2rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.2rem;
+  }
+}
+
+/* Plan New Trip Button */
+.planNewTripBtn {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: #1282a2;
+  color: #e4dfda;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.planNewTripBtn:hover {
+  background: #034078;
+  transform: translateY(-2px);
+}
+
+/* Modal Actions */
+.modalActions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.updateButton,
+.shareButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.updateButton {
+  background: #1282a2;
+  color: #e4dfda;
+}
+
+.updateButton:hover {
+  background: #034078;
+  transform: translateY(-2px);
+}
+
+.shareButton {
+  background: #63372c;
+  color: #e4dfda;
+}
+
+.shareButton:hover:not(:disabled) {
+  background: #011d4d;
+  transform: translateY(-2px);
+}
+
+.shareButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .modalActions {
+    flex-direction: column;
+  }
+}
+
+/* Calendar Button */
+.calendarButton {
+  background: #1282a2;
+  color: #e4dfda;
+}
+
+.calendarButton:hover {
+  background: #034078;
+  transform: translateY(-2px);
+}
+
+/* Calendar Section */
+.calendarSection {
+  margin-top: 3rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.toggleCalendarButton {
+  background: #1282a2;
+  color: #e4dfda;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggleCalendarButton:hover {
+  background: #034078;
+  transform: translateY(-2px);
+}
+
+.calendarContainer {
+  margin-top: 1.5rem;
+}
+
+/* Calendar Navigation */
+.calendarNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+}
+
+.navButton {
+  background: transparent;
+  color: #1282a2;
+  border: 2px solid #1282a2;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.navButton:hover {
+  background: #1282a2;
+  color: white;
+  transform: scale(1.1);
+}
+
+.monthTitle {
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  min-width: 200px;
+  text-align: center;
+}
+
+/* Calendar Grid */
+.calendarGrid {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.dayHeaders {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background: rgba(18, 130, 162, 0.2);
+}
+
+.dayHeader {
+  padding: 1rem;
+  text-align: center;
+  font-weight: 600;
+  color: var(--text-primary);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(3, 64, 120, 0.3);
+}
+
+.dayHeader:last-child {
+  border-right: none;
+}
+
+.calendarDays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: minmax(120px, auto);
+}
+
+.calendarDay {
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.5rem;
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  min-height: 120px;
+}
+
+.calendarDay:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.calendarDay:nth-child(7n) {
+  border-right: none;
+}
+
+.emptyDay {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.today {
+  background: rgba(18, 130, 162, 0.2) !important;
+  border: 2px solid #1282a2;
+}
+
+.dayNumber {
+  display: block;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.today .dayNumber {
+  color: #1282a2;
+  font-weight: 700;
+}
+
+.dayEvents {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dayEvent {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(18, 130, 162, 0.8);
+  color: #e4dfda;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dayEvent:hover {
+  background: rgba(3, 64, 120, 0.9);
+  transform: scale(1.02);
+}
+
+.eventDot {
+  width: 6px;
+  height: 6px;
+  background: #e4dfda;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.eventText {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.moreEvents {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-top: 2px;
+}
+
+/* Events List Below Calendar */
+.eventsList {
+  margin-top: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.eventsListTitle {
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.eventItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.eventItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.eventInfo {
+  flex: 1;
+}
+
+.eventItem .eventTitle {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.eventDates {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.eventLocation {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.emptyCalendar {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: var(--text-secondary);
+}
+
+.removeEventButton {
+  background: transparent;
+  color: #e74c3c;
+  border: 2px solid #e74c3c;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+.removeEventButton:hover {
+  background: #e74c3c;
+  color: white;
+  transform: scale(1.1) rotate(90deg);
+}
+
+@media (max-width: 768px) {
+  .sectionHeader {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .calendarSection {
+    margin-top: 2rem;
+    padding: 1.5rem;
+  }
+
+  .calendarNav {
+    gap: 1rem;
+    padding: 0.8rem;
+  }
+
+  .navButton {
+    width: 35px;
+    height: 35px;
+  }
+
+  .monthTitle {
+    font-size: 1.2rem;
+    min-width: 150px;
+  }
+
+  .calendarDays {
+    grid-auto-rows: minmax(80px, auto);
+  }
+
+  .calendarDay {
+    min-height: 80px;
+    padding: 0.3rem;
+  }
+
+  .dayNumber {
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .dayEvent {
+    font-size: 0.7rem;
+    padding: 1px 4px;
+  }
+
+  .eventItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .removeEventButton {
+    align-self: flex-end;
+  }
+
+  .eventsList {
+    padding: 1rem;
+  }
+
+  .eventsListTitle {
+    font-size: 1.1rem;
+  }
+}
+
+.editButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: #667eea;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  transition: background 0.3s ease;
+}
+
+.editButton:hover {
+  background-color: #5563c1;
+}
