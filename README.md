@@ -6,6 +6,12 @@ Built with a **scalable backend** and a **user-friendly frontend**.
 
 ---
 
+## 📹 Project Video
+
+Watch the demo: [https://drive.google.com/file/d/1rsW1GZpOnyr3sSuHvz0YzoBJzc4m8pHE/view?usp=sharing](https://your-video-link.example.com)
+
+---
+
 ## 🚀 Features
 
 - ✅ Secure **signup & login with OTP email verification**
